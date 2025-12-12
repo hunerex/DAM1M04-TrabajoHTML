@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/components.css">
+    <!-- Añadido page-specific.css para consistencia -->
+    <link rel="stylesheet" href="css/page-specific.css">
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -54,6 +56,9 @@
                 <a href="instrucciones.html" class="cta-button" aria-label="Inicia tu aventura en Root">¡Juega Ahora!</a>
             </div>
             <div class="hero-particles" aria-hidden="true">
+                <span class="particle"></span>
+                <span class="particle"></span>
+                <span class="particle"></span>
                 <span class="particle"></span>
                 <span class="particle"></span>
                 <span class="particle"></span>
@@ -123,35 +128,35 @@
 
         <section class="scroll-animation-section" aria-label="Historia épica del juego">
             <h2 class="section-title">La Aventura Épica Desplegada</h2>
-            <p class="scroll-intro">Scroll para descubrir el viaje desde la paz forestal hasta la guerra total</p>
+            <p class="scroll-intro">Desplázate para descubrir el viaje desde la paz forestal hasta la guerra total</p>
             
             <div class="scroll-container">
-                <article class="scroll-item">
+                <article class="scroll-item visible" data-index="1">
                     <h3>La Génesis del Caos Asimétrico</h3>
                     <p>Root es un juego de guerra asimétrica diseñado por Cole Wehrle y publicado por Leder Games en 2018. De 2 a 4 jugadores (expandible a 6) compiten por el control del Woodland, un vasto bosque ancestral. A diferencia de juegos convencionales donde todos tienen reglas iguales, en Root cada facción juega completamente diferente. El tablero muestra 12 clearings conectados por caminos forestales, donde cada jugador debe controlar territorio, recursos y alianzas. Las partidas duran 60 a 90 minutos. El genio de Root radica en que ninguna facción es "mejor" – solo diferente, garantizando miles de posibles narrativas emergentes.</p>
                 </article>
 
-                <article class="scroll-item">
+                <article class="scroll-item visible" data-index="2">
                     <h3>La Marquise de Cat: Expansión Industrial Implacable</h3>
                     <p>La Marquise de Cat representa el imperialismo industrial felino. Esta facción construye edificios (talleres, aserraderos, reclutadores) para obtener puntos de victoria. Según The Law of Root, la Marquise gana VP por cada edificio construido, acumulando bonificaciones por clusters. Su estrategia principal es el "snowball" – acumular recursos (madera) temprano para expandirse exponencialmente. Comienza controlando casi todo el mapa pero debe defender su imperio contra las otras facciones que buscan derrocarla.</p>
                 </article>
 
-                <article class="scroll-item">
+                <article class="scroll-item visible" data-index="3">
                     <h3>Los Eyrie Dynasties: Burocracia Celestial en Colapso</h3>
                     <p>Los Eyrie representan una monarquía aviaria atada a decretos rígidos. Cada turno, estos nobles alados deben ejecutar acciones en orden específico (el Decreto): reclutamiento, movimiento, batalla, construcción. Si no pueden completar una acción, caen en "turmoil" – pierden puntos y resetean. Los Eyrie buscan recuperar su antiguo imperio construyendo roosts (nidos) en los clearings. Requieren planificación perfecta; un error causa cascadas que otros jugadores explotan.</p>
                 </article>
 
-                <article class="scroll-item">
+                <article class="scroll-item visible" data-index="4">
                     <h3>La Woodland Alliance: Revolución desde las Sombras</h3>
                     <p>La Woodland Alliance es un movimiento revolucionario de criaturas oprimidas (ratones, zorros, conejos). Ganan puntos esparciendo "sympathy" (simpatía) tokens en clearings, y cuando la simpatía es suficiente, pueden hacer "revolts" para construir bases militares. Las bases confieren "martial law" – enemigos pagan costos adicionales para atacar. La Alliance es débil temprano pero devastadora en late-game. Si la Marquise y Eyrie luchan entre sí, la Alliance crece sin ser molestada hasta explotar.</p>
                 </article>
 
-                <article class="scroll-item">
+                <article class="scroll-item visible" data-index="5">
                     <h3>El Vagabond: Oportunista Solitario en el Bosque</h3>
                     <p>El Vagabond es un aventurero solitario que juega por sí mismo, sin ejército. Gana puntos mejorando relaciones con facciones (coaliciones), removiendo guerreros hostiles, y completando quests para reliquias. Maneja un inventario de items (espada, antorcha, martillo) que agota para habilidades especiales. El Vagabond es el wildcard: puede ayudar a cualquier facción pero su lealtad es volátil. A menudo cambia alianzas en el turno final para ganar.</p>
                 </article>
 
-                <article class="scroll-item">
+                <article class="scroll-item visible" data-index="6">
                     <h3>Expansiones: Profundidad Infinita del Woodland</h3>
                     <p>La expansión Riverfolk Company (2018) introdujo a los mercaderes otters que venden servicios por dinero, y la Lizard Cult que sacrifica cartas para un dios reptil. Underworld (2020) añadió el Duchy subterráneo y los Corvid Conspiracy. Clockwork (2020) permitió solo-play contra bots automáticos. Marauder (2022) trajo a los Lords of the Hundreds y Keepers in Iron. Cada expansión enriquece el universo sin bloatearlo, añadiendo nuevas tácticas y narrativas. Root evolucionó de juego competitivo a ecosistema vivo con una de las comunidades más dedicadas en BoardGameGeek.</p>
                 </article>

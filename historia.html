@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contacta con la comunidad Root. Envía consultas, estrategias o colaboraciones. Formulario con validación CSS pura.">
-    <meta name="keywords" content="Root contacto, Leder Games contacto, comunidad Root, BoardGameGeek">
-    <title>Root: A Woodland Game of Might and Right - Contacto</title>
+    <meta name="description" content="Historia y lore de Root: A Woodland Game. Descubre la crónica de facciones, conflictos históricos y narrativas emergentes del Woodland.">
+    <meta name="keywords" content="Root historia, lore Root, facciones Root, Woodland, Marquise, Eyrie, Alliance, Vagabond">
+    <title>Root: A Woodland Game of Might and Right - Historia</title>
     
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/components.css">
+    <!-- Añadido page-specific.css para estilos de carrusel y lore -->
+    <link rel="stylesheet" href="css/page-specific.css">
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -35,8 +37,8 @@
                 <ul class="menu">
                     <li><a href="index.html" title="Inicio">Inicio</a></li>
                     <li><a href="instrucciones.html" title="Instrucciones">Instrucciones</a></li>
-                    <li><a href="historia.html" title="Historia">Historia</a></li>
-                    <li><a href="contacto.html" class="active" title="Contacto">Contacto</a></li>
+                    <li><a href="historia.html" class="active" title="Historia">Historia</a></li>
+                    <li><a href="contacto.html" title="Contacto">Contacto</a></li>
                     <li><a href="about.html" title="About Us">About Us</a></li>
                 </ul>
             </nav>
@@ -46,177 +48,113 @@
     <main role="main" class="main-content">
         
         <section class="page-hero">
-            <h2>Forja Tu Conexión con el Woodland</h2>
-            <p>Contacto Profesional para Estrategas Root</p>
+            <h2>La Crónica Legendaria del Woodland</h2>
+            <p>Lore Profundo, Conflictos Históricos e Historias Emergentes</p>
         </section>
 
-        <section class="contact-intro">
-            <h3>Únete a 50k+ Jugadores en BoardGameGeek</h3>
-            <p>Root tiene una de las comunidades más dedicadas en juegos de mesa. Desde torneos virtuales hasta homebrew facciones creativas, desde análisis estratégicos profundos hasta fan-lore colaborativo – la comunidad Woodland está viva. Usa este formulario para conectar, compartir ideas, proponer colaboraciones o solicitar información. Validación profesional con CSS puro asegura que tus datos sean correctos.</p>
+        <section class="carousel-section" aria-label="Galería visual del Woodland">
+            <h3 class="section-title">Viaje Visual por el Destino del Woodland</h3>
+            <div class="carousel-container">
+                <div class="carousel" aria-label="Carrusel de imágenes del lore de Root">
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen1.jpg" alt="Marquise de Cat invadiendo con maquinaria industrial" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen2.jpg" alt="Eyrie Dynasties en torres celestiales" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen3.jpg" alt="Woodland Alliance extendiendo simpatía revolucionaria" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen4.jpg" alt="Vagabond solitario buscando reliquias" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen5.jpg" alt="Batalla épica multi-facción" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen6.jpg" alt="Riverfolk Company comerciando" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen7.jpg" alt="Lizard Cult en rituales místicos" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen8.jpg" alt="Panorámica del Woodland prístino" class="carousel-img" loading="lazy">
+                    </figure>
+                    <!-- Duplicados para loop infinito -->
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen1.jpg" alt="Marquise de Cat" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen2.jpg" alt="Eyrie Dynasties" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen3.jpg" alt="Woodland Alliance" class="carousel-img" loading="lazy">
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="assets/img/imagen4.jpg" alt="Vagabond" class="carousel-img" loading="lazy">
+                    </figure>
+                </div>
+            </div>
+            <p class="carousel-note">Pausa el carrusel al pasar el cursor para admirar cada era del Woodland</p>
         </section>
 
-        <section class="contact-container">
+        <section class="lore-section" aria-label="Historia del Woodland">
             
-            <div class="contact-info">
-                
-                <div class="info-block">
-                    <h4 class="info-title">
-                        <span class="material-icons" aria-hidden="true">groups</span>
-                        Comunidad Global
-                    </h4>
-                    <p class="info-content">BoardGameGeek (BGG): 50,000+ jugadores activos</p>
-                    <p class="info-desc">La plataforma más grande para Root. Encuentros semanales en forums, campeonatos online, y facciones homebrew experimentales.</p>
+            <article class="lore-article">
+                <div class="lore-content">
+                    <h3>La Era Primordial: Un Paraíso Perdido</h3>
+                    <p>Antes de la invasión, el Woodland fue un edén de paz ancestral. Según el lore oficial de Leder Games, durante incontables generaciones, las aves Eyrie volaron libres en cielos cristalinos, comunidades de conejos y ratones construyeron madrigueras conectadas bajo tierra, y diversas criaturas compartían los recursos del bosque. Cada especie respetaba los "Clearings" (claros) asignados por tradición inmemorial. Los bosques producían abundancia: frutos, agua pura, refugio seguro. Pero como en todos los paraísos, la armonía era frágil. Las raíces del conflicto se sembraban en sutiles resentimientos y ambiciones ocultas.</p>
+                    <img src="assets/img/imagen8.jpg" alt="Panorámica del Woodland prístino antes de la invasión" class="lore-image" loading="lazy">
                 </div>
+            </article>
 
-                <div class="info-block">
-                    <h4 class="info-title">
-                        <span class="material-icons" aria-hidden="true">location_on</span>
-                        Ubicación Oficial
-                    </h4>
-                    <p class="info-content">
-                        Leder Games<br>
-                        651 Snelling Ave N<br>
-                        Saint Paul, MN 55104, USA
-                    </p>
-                    <p class="info-desc">Sede oficial de Leder Games desde 2016. Creadores de Root, Vast, y Fort.</p>
+            <article class="lore-article">
+                <div class="lore-content">
+                    <h3>La Invasión Felina: Imperialismo Industrial</h3>
+                    <p>Todo cambió cuando la Marquise de Cat llegó con visiones de conquista industrial. Esta facción felina escapó de tierras lejanas tras derrotas políticas, buscando un nuevo imperio donde imprimir su voluntad. Vio el Woodland no como hogar sagrado sino como "recursos sin explotar". Con ingeniería feroz, comenzó a talar antiguos robles para aserraderos. Construyó talleres donde se forjaban armas de guerra. Estableció reclutadores en cada clearing para engrosar sus fuerzas. Su modelo económico fue imperialismo puro: extraer valor, concentrar poder, expandir sin límite. Cole Wehrle basó esta facción en conflictos históricos reales de colonialismo e industrialización.</p>
+                    <img src="assets/img/imagen1.jpg" alt="Marquise invadiendo con maquinaria industrial" class="lore-image" loading="lazy">
                 </div>
+            </article>
 
-                <div class="info-block">
-                    <h4 class="info-title">
-                        <span class="material-icons" aria-hidden="true">phone</span>
-                        Teléfono de Contacto
-                    </h4>
-                    <a href="tel:+16515551234" class="info-link">+1 (651) 555-1234</a>
-                    <p class="info-desc">Línea de atención al cliente. Horario: Lunes a Viernes, 9AM - 5PM CST.</p>
+            <article class="lore-article">
+                <div class="lore-content">
+                    <h3>Los Eyrie Dynasties: Decadencia Burocrática</h3>
+                    <p>Los Eyrie Dynasties fueron alguna vez la gloria suprema del Woodland. Descendientes de águilas legendarias, gobernaban desde roosts elevados con sabiduría antigua. Pero la invasión Marquise expuso grietas profundas en su sistema. Los nobles aviarios se aferraron a decretos rígidos, esperando que la tradición derrotaría la maquinaria moderna. Fue una profecía autodestructiva. La burocracia Eyrie – el sistema de decretos que fuerza una secuencia de acciones rígida – evolucionó de arquitectura flexible a cárcel de hierro. Un decreto fallido causa turmoil (colapso interno). Los Eyrie encarnan arquetipos históricos de imperios que colapsan bajo el peso de su propia inflexibilidad institucional.</p>
+                    <img src="assets/img/imagen2.jpg" alt="Eyrie en torres celestiales en crisis" class="lore-image" loading="lazy">
                 </div>
+            </article>
 
-                <div class="info-block">
-                    <h4 class="info-title">
-                        <span class="material-icons" aria-hidden="true">email</span>
-                        Email Oficial
-                    </h4>
-                    <a href="mailto:contact@ledergames.com" class="info-link">contact@ledergames.com</a>
-                    <p class="info-desc">Envía consultas directas. Tiempo de respuesta típico: 24-48 horas.</p>
+            <article class="lore-article">
+                <div class="lore-content">
+                    <h3>La Woodland Alliance: Chispa Revolucionaria</h3>
+                    <p>Mientras Marquise tala bosques y Eyrie colapsa en burocracia, desde madrigueras subterráneas surge la Woodland Alliance: un movimiento revolucionario de especies oprimidas. Ratones, zorros, conejos, erizos – todas las comunidades aplastadas bajo ocupación felina y negligencia burocrática aviaria – se unen en causa común. El lore oficial sitúa a la Alliance como resistencia análoga a levantamientos históricos reales: movimientos de independencia, revoluciones populares contra aristocracias. La simpatía Alliance (tokens que esparcen) evoca agitación política – conversaciones sediciosas, propaganda subversiva, organización clandestina. Los revolts son momentos de eclosión: simpatía acumulada + crisis = explosión.</p>
+                    <img src="assets/img/imagen3.jpg" alt="Alliance extendiendo simpatía revolucionaria" class="lore-image" loading="lazy">
                 </div>
+            </article>
 
-                <div class="map-block">
-                    <h4 class="info-title">
-                        <span class="material-icons" aria-hidden="true">map</span>
-                        Nuestra Ubicación
-                    </h4>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.7806761080896!2d-93.16687368446396!3d44.96366197909827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b32b6ee8cf3b4b%3A0x5b79d7c8a9a3e8b0!2s651%20Snelling%20Ave%20N%2C%20St%20Paul%2C%20MN%2055104!5e0!3m2!1sen!2sus!4v1702000000000!5m2!1sen!2sus" 
-                        width="100%" 
-                        height="280" 
-                        style="border:0; border-radius: 10px;"
-                        allowfullscreen="" 
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Mapa de ubicación de Leder Games en Saint Paul, Minnesota"
-                        aria-label="Mapa interactivo mostrando la ubicación de Leder Games">
-                    </iframe>
+            <article class="lore-article">
+                <div class="lore-content">
+                    <h3>El Vagabond: Individualismo en Mundo Factional</h3>
+                    <p>En medio del caos, una figura sombría emerge de ruinas olvidadas: el Vagabond. No es ciudadano de ninguna facción. No jura lealtad a imperio (Marquise), monarquía (Eyrie), ni movimiento (Alliance). Es mercenario puro, errante coleccionando reliquias antiguas, comerciando favores, persiguiendo quests personales. Leder Games describe al Vagabond como análogo a arquetipos históricos: el ronin japonés sin señor, el espía medieval en cortes peligrosas, el mercenario renacentista vendiendo servicios al mejor postor. Su lore encarna temas de individualismo versus colectivismo. El Vagabond a menudo traiciona en el turno final, cambiando alianzas por victoria personal.</p>
+                    <img src="assets/img/imagen4.jpg" alt="Vagabond en ruinas buscando reliquias" class="lore-image" loading="lazy">
                 </div>
+            </article>
 
-            </div>
+            <article class="lore-article">
+                <div class="lore-content">
+                    <h3>Expansiones: Dimensiones Infinitas del Woodland</h3>
+                    <p>El lore de Root evoluciona infinitamente vía expansiones. <strong>Riverfolk Company</strong> (2018) introduce comercio fluvial: otters mercaderes controlan ríos como venecianos medievales, vendiendo servicios por dinero. <strong>Lizard Cult</strong> emerge de cuevas profundas con religión exótica: sacrifican cartas para un dios reptil subterráneo. <strong>Underworld</strong> (2020) añade el Duchy subterráneo de topos y los Corvid Conspiracy de cuervos conspiradores. <strong>Marauder</strong> (2022) trae a los Lords of the Hundreds (ratas saqueadoras) y Keepers in Iron (tejones blindados). Cada expansión enriquece el universo, añadiendo nuevas tácticas, temas y narrativas emergentes.</p>
+                    <img src="assets/img/imagen6.jpg" alt="Riverfolk Company en comercio fluvial" class="lore-image" loading="lazy">
+                </div>
+            </article>
 
-            <div class="contact-form-section">
-                <h3>Envía Tu Petición al Woodland</h3>
-                <p class="form-intro">Formulario con validación CSS pura usando :valid/:invalid y pattern regex</p>
-                
-                <form class="contact-form" novalidate aria-label="Formulario de contacto">
-                    
-                    <div class="form-group">
-                        <label for="nombre" class="form-label">
-                            Nombre Completo <span class="required" aria-label="campo requerido">*</span>
-                        </label>
-                        <input 
-                            type="text" 
-                            id="nombre" 
-                            name="nombre" 
-                            class="form-input" 
-                            placeholder="Tu nombre completo"
-                            pattern="^[A-Za-záéíóúñÁÉÍÓÚÑüÜ\s]{3,60}$"
-                            required
-                            autocomplete="name"
-                            aria-required="true"
-                            aria-describedby="nombre-error">
-                        <span class="form-error" id="nombre-error">Solo letras y espacios, mínimo 3 caracteres</span>
-                        <span class="form-valid" aria-hidden="true">✓</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefono" class="form-label">
-                            Teléfono <span class="required" aria-label="campo requerido">*</span>
-                        </label>
-                        <input 
-                            type="tel" 
-                            id="telefono" 
-                            name="telefono" 
-                            class="form-input" 
-                            placeholder="+34 612 345 678"
-                            pattern="^\+?[0-9\s\-]{10,18}$"
-                            required
-                            autocomplete="tel"
-                            aria-required="true"
-                            aria-describedby="telefono-error">
-                        <span class="form-error" id="telefono-error">Formato: +34 612 345 678 (10-18 dígitos)</span>
-                        <span class="form-valid" aria-hidden="true">✓</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="form-label">
-                            Correo Electrónico <span class="required" aria-label="campo requerido">*</span>
-                        </label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            class="form-input" 
-                            placeholder="tu@email.com"
-                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                            required
-                            autocomplete="email"
-                            aria-required="true"
-                            aria-describedby="email-error">
-                        <span class="form-error" id="email-error">Introduce un email válido (ej: nombre@dominio.com)</span>
-                        <span class="form-valid" aria-hidden="true">✓</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="peticion" class="form-label">
-                            Tu Consulta <span class="required" aria-label="campo requerido">*</span>
-                        </label>
-                        <textarea 
-                            id="peticion" 
-                            name="peticion" 
-                            class="form-textarea" 
-                            placeholder="Escribe tu consulta, sugerencia o feedback aquí... (máx. 500 caracteres)"
-                            rows="6"
-                            required
-                            minlength="10"
-                            maxlength="500"
-                            aria-required="true"
-                            aria-describedby="peticion-error peticion-count"></textarea>
-                        <div class="form-char-info">
-                            <span class="form-char-count" id="peticion-count">Máximo: 500 caracteres</span>
-                        </div>
-                        <span class="form-error" id="peticion-error">Mínimo 10 caracteres requeridos</span>
-                        <span class="form-valid form-valid-textarea" aria-hidden="true">✓</span>
-                    </div>
-
-                    <button type="submit" class="submit-button" aria-label="Enviar formulario de contacto">
-                        <span class="material-icons" aria-hidden="true">send</span>
-                        Enviar al Woodland
-                    </button>
-
-                </form>
-
-                <p class="form-note">
-                    <span class="material-icons" aria-hidden="true">info</span>
-                    Validación CSS pura con :valid/:invalid. Los campos se validan automáticamente según los patrones regex definidos. Sin JavaScript.
-                </p>
-
-            </div>
+            <article class="lore-article">
+                <div class="lore-content">
+                    <h3>Temas Universales: Root como Espejo de Conflictos Humanos</h3>
+                    <p>Más allá de mecánicas lúdicas, Root es una alegoría profunda sobre poder, justicia, adaptación y destino. Cole Wehrle diseñó intencionalmente el juego para explorar preguntas atemporales: ¿Es el poder inherentemente corrupto (Marquise expandiendo sin fin)? ¿Pueden sistemas rígidos sobrevivir al cambio radical (Eyrie turmoil)? ¿Justifica la revolución la opresión previa (Alliance)? ¿Es el individualismo la supervivencia última (Vagabond)? Cada facción responde diferente. Root enseña que NO hay respuesta "correcta" – solo perspectivas conflictivas. Ganador del Golden Geek 2018, Root es celebrado como "clase magistral en storytelling interactivo donde jugadores generan lore colectivamente".</p>
+                    <img src="assets/img/imagen5.jpg" alt="Batalla épica multi-facción" class="lore-image" loading="lazy">
+                </div>
+            </article>
 
         </section>
 
@@ -225,7 +163,7 @@
     <footer role="contentinfo" class="footer">
         <div class="footer-container">
             <div class="copyright">
-                <p><span class="copyright-symbol">©</span> 2025 Root: A Woodland Game of Might and Right – Leder Games (Saint Paul, MN). Comunidad global: 50k+ jugadores en BoardGameGeek.</p>
+                <p><span class="copyright-symbol">©</span> 2025 Root: A Woodland Game of Might and Right – Leder Games (2018). Lore basado en trasfondo oficial y análisis comunitario. Cada partida reescribe la historia del Woodland.</p>
             </div>
             <nav class="social-icons" aria-label="Redes sociales">
                 <a href="https://twitter.com/ledergames" target="_blank" rel="noopener noreferrer" title="Twitter" aria-label="Twitter">

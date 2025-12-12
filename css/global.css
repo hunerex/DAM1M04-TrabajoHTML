@@ -22,12 +22,15 @@
   --border-color: rgba(139, 69, 19, 0.25);
   --border-color-light: rgba(255, 215, 0, 0.15);
 
-  /* SOMBRAS 3D PROFESIONALES */
+  /* SOMBRAS 3D PROFESIONALES MEJORADAS */
   --shadow-xs: 0 2px 4px rgba(0, 0, 0, 0.06);
   --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.15);
-  --shadow-large: 0 12px 40px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.25);
+  --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 12px 40px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.15);
+  --shadow-3d:
+    0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08), 0 4px 4px rgba(0, 0, 0, 0.08), 0 8px 8px
+    rgba(0, 0, 0, 0.08), 0 16px 16px rgba(0, 0, 0, 0.08);
   --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.2);
   --shadow-glow-strong: 0 0 40px rgba(212, 175, 55, 0.35);
   --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.08);
@@ -101,7 +104,7 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--text-dark);
-  background: linear-gradient(180deg, var(--bg-light) 0%, #f5f0e8 100%);
+  background: linear-gradient(180deg, var(--bg-light) 0%, #f0ebe0 50%, #e8e2d5 100%);
   background-attachment: fixed;
   overflow-x: hidden;
   display: grid;
@@ -110,25 +113,40 @@ body {
   position: relative;
 }
 
-/* Patrón de textura sutil */
+/* Textura de fondo premium con patrón de corteza sutil */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: repeating-linear-gradient(
+  /* Patrón de hojas sutiles */
+  background-image: radial-gradient(ellipse 80px 60px at 20% 30%, rgba(26, 77, 38, 0.015) 0%, transparent 70%),
+    radial-gradient(ellipse 60px 80px at 80% 70%, rgba(139, 69, 19, 0.01) 0%, transparent 70%),
+    radial-gradient(ellipse 100px 70px at 50% 50%, rgba(212, 175, 55, 0.008) 0%, transparent 70%),
+    /* Textura de corteza */
+    repeating-linear-gradient(
       90deg,
       transparent,
-      transparent 2px,
-      rgba(26, 77, 38, 0.015) 2px,
-      rgba(26, 77, 38, 0.015) 4px
+      transparent 3px,
+      rgba(26, 77, 38, 0.012) 3px,
+      rgba(26, 77, 38, 0.012) 6px
     ),
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 2px,
-      rgba(139, 69, 19, 0.01) 2px,
-      rgba(139, 69, 19, 0.01) 4px
+      transparent 3px,
+      rgba(139, 69, 19, 0.008) 3px,
+      rgba(139, 69, 19, 0.008) 6px
     );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Capa adicional de profundidad con viñeta */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(13, 40, 23, 0.03) 100%);
   pointer-events: none;
   z-index: -1;
 }
@@ -289,6 +307,12 @@ img {
 }
 
 /* ====== RESPONSIVE BASE ====== */
+@media (max-width: 1024px) {
+  html {
+    font-size: 15.5px;
+  }
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 15px;
@@ -303,5 +327,16 @@ img {
 @media (max-width: 480px) {
   html {
     font-size: 14px;
+  }
+}
+
+/* ====== LARGE DESKTOP ====== */
+@media (min-width: 1440px) {
+  html {
+    font-size: 17px;
+  }
+
+  :root {
+    --container-max-width: 1320px;
   }
 }

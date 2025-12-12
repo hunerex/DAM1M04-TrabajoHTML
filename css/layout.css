@@ -224,11 +224,12 @@
   z-index: 1;
 }
 
-/* Copyright alineado a la izquierda */
+/* Copyright alineado a la DERECHA según instrucciones */
 .copyright {
   flex: 1;
   min-width: 280px;
-  text-align: left;
+  text-align: right;
+  order: 2;
 }
 
 .copyright p {
@@ -238,7 +239,7 @@
   font-style: italic;
   margin: 0;
   color: var(--text-light);
-  text-align: left;
+  text-align: right;
 }
 
 .copyright-symbol {
@@ -247,12 +248,13 @@
   font-style: normal;
 }
 
-/* Iconos sociales alineados a la derecha */
+/* Iconos sociales alineados a la IZQUIERDA */
 .social-icons {
   display: flex;
   gap: var(--spacing-base);
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  order: 1;
 }
 
 .social-icons a {
@@ -397,19 +399,21 @@
     text-align: center;
   }
 
+  /* En móvil, copyright centrado arriba */
   .copyright {
     text-align: center;
-    order: 2;
+    order: 1;
   }
 
   .copyright p {
     text-align: center;
   }
 
+  /* Iconos centrados abajo en móvil */
   .social-icons {
     justify-content: center;
-    order: 1;
-    margin-bottom: var(--spacing-base);
+    order: 2;
+    margin-top: var(--spacing-base);
   }
 }
 

@@ -1,0 +1,1305 @@
+/* ====================================================================
+   PAGE-SPECIFIC.CSS - ESTILOS PREMIUM PARA PAGINAS INDIVIDUALES
+   ====================================================================
+   Archivo dedicado a estilos específicos de: 
+   - historia.html (carrusel CSS puro, lore sections)
+   - contacto.html (formulario, mapa, info blocks)
+   - about.html (team grid, video section)
+   ==================================================================== */
+
+/* ====================================================================
+   HISTORIA.HTML - CARRUSEL CSS PURO Y LORE SECTIONS
+   ==================================================================== */
+
+/* ------------------------------------------------------------------
+   HISTORIA - Carrusel Container Principal
+   ------------------------------------------------------------------ */
+.carousel-section {
+  margin: var(--spacing-2xl) 0;
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, rgba(26, 77, 38, 0.08) 0%, rgba(139, 69, 19, 0.05) 100%),
+    radial-gradient(ellipse at center, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+  border-radius: var(--border-radius-xl);
+  border: 2px solid var(--border-color-light);
+  box-shadow: var(--shadow-medium), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Efecto de niebla lateral en el carrusel */
+.carousel-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 248, 243, 0.8) 0%,
+    transparent 10%,
+    transparent 90%,
+    rgba(250, 248, 243, 0.8) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Carrusel Container Interno
+   ------------------------------------------------------------------ */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-large);
+  position: relative;
+}
+
+/* Sombras laterales del carrusel */
+.carousel-container::before,
+.carousel-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-container::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(26, 77, 38, 0.5) 0%, transparent 100%);
+}
+
+.carousel-container::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(26, 77, 38, 0.5) 0%, transparent 100%);
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Carrusel Track Animado CSS Puro
+   ------------------------------------------------------------------ */
+.carousel {
+  display: flex;
+  animation: historia-carouselSlide 70s linear infinite;
+  width: calc(100% / 12 * 12 * 2);
+}
+
+.carousel:hover {
+  animation-play-state: paused;
+}
+
+/* Keyframes para el carrusel - movido aquí para especificidad */
+@keyframes historia-carouselSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Carrusel Slides Individuales
+   ------------------------------------------------------------------ */
+.carousel-slide {
+  flex: 0 0 calc(100% / 4);
+  padding: var(--spacing-small);
+  transition: all var(--transition-normal);
+}
+
+.carousel-slide:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Carrusel Imagenes
+   ------------------------------------------------------------------ */
+.carousel-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-medium);
+  transition: all var(--transition-normal);
+  border: 4px solid transparent;
+}
+
+.carousel-slide:hover .carousel-img {
+  border-color: var(--title-gold);
+  box-shadow: var(--shadow-large), 0 0 35px rgba(212, 175, 55, 0.4);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Carrusel Nota Inferior
+   ------------------------------------------------------------------ */
+.carousel-note {
+  text-align: center;
+  margin-top: var(--spacing-large);
+  font-style: italic;
+  color: var(--accent-wood);
+  font-size: var(--font-size-small);
+  position: relative;
+  z-index: 4;
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Lore Section Container
+   ------------------------------------------------------------------ */
+.lore-section {
+  margin: var(--spacing-2xl) 0;
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Lore Article Cards
+   ------------------------------------------------------------------ */
+.lore-article {
+  margin-bottom: var(--spacing-2xl);
+  background: white;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+/* Borde decorativo superior animado */
+.lore-article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.lore-article:hover {
+  box-shadow: var(--shadow-large), 0 0 40px rgba(212, 175, 55, 0.2);
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.lore-article:hover::before {
+  transform: scaleX(1);
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Lore Content Grid (alternando imagen izq/der)
+   ------------------------------------------------------------------ */
+.lore-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  align-items: center;
+}
+
+/* Alternar direccion para efecto zigzag */
+.lore-article:nth-child(even) .lore-content {
+  direction: rtl;
+}
+
+.lore-article:nth-child(even) .lore-content > * {
+  direction: ltr;
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Lore Titulos
+   ------------------------------------------------------------------ */
+.lore-content h3 {
+  grid-column: 1 / -1;
+  color: var(--bg-forest);
+  margin-bottom: var(--spacing-base);
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  position: relative;
+  padding-bottom: var(--spacing-small);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.lore-content h3::before {
+  content: "◈";
+  color: var(--title-gold);
+  margin-right: 12px;
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Lore Parrafos
+   ------------------------------------------------------------------ */
+.lore-content p {
+  line-height: 1.85;
+  color: var(--text-dark);
+  text-align: justify;
+  font-size: var(--font-size-base);
+}
+
+/* ------------------------------------------------------------------
+   HISTORIA - Lore Imagenes
+   ------------------------------------------------------------------ */
+.lore-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-medium);
+  transition: all var(--transition-normal);
+  border: 4px solid rgba(139, 69, 19, 0.3);
+}
+
+.lore-article:hover .lore-image {
+  transform: scale(1.03);
+  border-color: var(--title-gold);
+  box-shadow: var(--shadow-large);
+}
+
+/* ====================================================================
+   CONTACTO.HTML - FORMULARIO, MAPA, INFO BLOCKS
+   ==================================================================== */
+
+/* ------------------------------------------------------------------
+   CONTACTO - Intro Section
+   ------------------------------------------------------------------ */
+.contact-intro {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, rgba(26, 77, 38, 0.08) 0%, rgba(139, 69, 19, 0.05) 100%),
+    radial-gradient(ellipse at top, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+  border-radius: var(--border-radius-xl);
+  border: 2px solid var(--border-color-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-intro h3 {
+  color: var(--bg-forest);
+  margin-bottom: var(--spacing-base);
+}
+
+.contact-intro p {
+  color: var(--text-dark);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Container Grid Principal
+   ------------------------------------------------------------------ */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--spacing-2xl);
+  margin: var(--spacing-xl) 0;
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Info Blocks Container
+   ------------------------------------------------------------------ */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Info Block Individual
+   ------------------------------------------------------------------ */
+.info-block {
+  background: white;
+  padding: var(--spacing-large);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gradient-gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--transition-normal);
+}
+
+.info-block:hover {
+  box-shadow: var(--shadow-medium), 0 0 20px rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateX(10px);
+}
+
+.info-block:hover::before {
+  transform: scaleY(1);
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Info Block Titulos
+   ------------------------------------------------------------------ */
+.info-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  color: var(--bg-forest);
+  margin-bottom: var(--spacing-base);
+  font-size: var(--font-size-large);
+}
+
+.info-title .material-icons {
+  color: var(--title-gold);
+  font-size: 28px;
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Info Block Contenido
+   ------------------------------------------------------------------ */
+.info-content {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-small);
+  line-height: 1.6;
+}
+
+.info-desc {
+  font-size: var(--font-size-small);
+  color: var(--accent-wood);
+  font-style: italic;
+  margin: 0;
+}
+
+.info-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  color: var(--accent-wood);
+  font-weight: 600;
+  font-size: var(--font-size-large);
+  transition: all var(--transition-normal);
+  padding: var(--spacing-small) 0;
+}
+
+.info-link:hover {
+  color: var(--title-gold);
+  transform: translateX(8px);
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Map Block
+   ------------------------------------------------------------------ */
+.map-block {
+  background: white;
+  padding: var(--spacing-large);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-normal);
+}
+
+.map-block:hover {
+  box-shadow: var(--shadow-large), 0 0 30px rgba(212, 175, 55, 0.2);
+  border-color: var(--title-gold);
+}
+
+/* Estilos del iframe del mapa - SIN CSS inline */
+.map-block iframe {
+  width: 100%;
+  height: 280px;
+  border: 0;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-normal);
+}
+
+.map-block:hover iframe {
+  box-shadow: var(--shadow-medium);
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Form Section Container
+   ------------------------------------------------------------------ */
+.contact-form-section {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-gold);
+}
+
+.contact-form-section h3 {
+  color: var(--bg-forest);
+  margin-bottom: var(--spacing-small);
+  text-align: center;
+}
+
+.form-intro {
+  text-align: center;
+  color: var(--accent-wood);
+  font-style: italic;
+  font-size: var(--font-size-small);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Form Styles
+   ------------------------------------------------------------------ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--bg-forest);
+  margin-bottom: var(--spacing-small);
+  font-size: var(--font-size-small);
+  letter-spacing: 0.5px;
+}
+
+.required {
+  color: #c0392b;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Form Inputs
+   ------------------------------------------------------------------ */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--spacing-base);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-normal);
+  background: var(--bg-light);
+  color: var(--text-dark);
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-wood);
+  box-shadow: 0 0 0 4px rgba(139, 69, 19, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Form Validacion CSS Pura
+   ------------------------------------------------------------------ */
+.form-input:valid:not(:placeholder-shown),
+.form-textarea:valid:not(:placeholder-shown) {
+  border-color: #27ae60;
+  background: rgba(39, 174, 96, 0.03);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+}
+
+.form-input:invalid:not(:placeholder-shown):not(:focus),
+.form-textarea:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: #c0392b;
+  background: rgba(192, 57, 43, 0.03);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
+  animation: contacto-shake 0.4s ease-in-out;
+}
+
+@keyframes contacto-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Form Error/Valid Messages
+   ------------------------------------------------------------------ */
+.form-error {
+  display: none;
+  color: #c0392b;
+  font-size: var(--font-size-xs);
+  margin-top: var(--spacing-xs);
+  font-style: italic;
+}
+
+.form-valid {
+  display: none;
+  position: absolute;
+  right: var(--spacing-base);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #27ae60;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(39, 174, 96, 0.3);
+}
+
+.form-valid-textarea {
+  top: auto;
+  bottom: 65px;
+}
+
+.form-input:invalid:not(:placeholder-shown):not(:focus) ~ .form-error,
+.form-textarea:invalid:not(:placeholder-shown):not(:focus) ~ .form-error {
+  display: block;
+}
+
+.form-input:valid:not(:placeholder-shown) ~ .form-valid,
+.form-textarea:valid:not(:placeholder-shown) ~ .form-valid {
+  display: block;
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Form Textarea
+   ------------------------------------------------------------------ */
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form-char-info {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-xs);
+}
+
+.form-char-count {
+  font-size: var(--font-size-xs);
+  color: var(--accent-wood);
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Submit Button
+   ------------------------------------------------------------------ */
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-small);
+  padding: var(--spacing-base) var(--spacing-xl);
+  background: var(--gradient-gold);
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-medium), 0 0 20px rgba(212, 175, 55, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: left 0.6s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-large), 0 0 40px rgba(212, 175, 55, 0.5);
+}
+
+.submit-button:hover::before {
+  left: 100%;
+}
+
+.submit-button:active {
+  transform: translateY(-2px);
+}
+
+.submit-button .material-icons {
+  font-size: 20px;
+}
+
+/* ------------------------------------------------------------------
+   CONTACTO - Form Note
+   ------------------------------------------------------------------ */
+.form-note {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  margin-top: var(--spacing-large);
+  padding: var(--spacing-base);
+  background: rgba(26, 77, 38, 0.05);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-xs);
+  color: var(--accent-wood);
+  font-style: italic;
+}
+
+.form-note .material-icons {
+  color: var(--title-gold);
+  font-size: 18px;
+}
+
+/* ====================================================================
+   ABOUT.HTML - EQUIPO Y VIDEO SECTIONS
+   ==================================================================== */
+
+/* ------------------------------------------------------------------
+   ABOUT - Team Intro
+   ------------------------------------------------------------------ */
+.team-intro {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, rgba(26, 77, 38, 0.08) 0%, rgba(139, 69, 19, 0.05) 100%),
+    radial-gradient(ellipse at top, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+  border-radius: var(--border-radius-xl);
+  border: 2px solid var(--border-color-light);
+}
+
+.team-intro h3 {
+  color: var(--bg-forest);
+  margin-bottom: var(--spacing-base);
+}
+
+.team-intro p {
+  color: var(--text-dark);
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.85;
+}
+
+/* ------------------------------------------------------------------
+   ABOUT - Team Grid
+   ------------------------------------------------------------------ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+  margin: var(--spacing-2xl) 0;
+}
+
+/* ------------------------------------------------------------------
+   ABOUT - Team Member Cards
+   ------------------------------------------------------------------ */
+.team-member {
+  background: white;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.team-member::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-normal);
+  z-index: 2;
+}
+
+.team-member:hover {
+  box-shadow: var(--shadow-large), 0 0 50px rgba(212, 175, 55, 0.25);
+  transform: translateY(-15px);
+  border-color: var(--title-gold);
+}
+
+.team-member:hover::before {
+  transform: scaleX(1);
+}
+
+/* ------------------------------------------------------------------
+   ABOUT - Team Member Image
+   ------------------------------------------------------------------ */
+.member-image-wrapper {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all var(--transition-slow);
+  filter: sepia(0.25) contrast(1.05) brightness(0.95);
+  border-radius: 0;
+}
+
+.team-member:hover .member-image {
+  transform: scale(1.1);
+  filter: sepia(0) contrast(1.1) brightness(1.05);
+}
+
+/* ------------------------------------------------------------------
+   ABOUT - Team Member Content
+   ------------------------------------------------------------------ */
+.member-content {
+  padding: var(--spacing-xl);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.member-name {
+  color: var(--bg-forest);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-small);
+}
+
+.member-role {
+  color: var(--title-gold);
+  font-weight: 600;
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: var(--spacing-base);
+  padding-bottom: var(--spacing-base);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.member-bio {
+  color: var(--text-dark);
+  line-height: 1.75;
+  font-size: var(--font-size-small);
+  flex: 1;
+  text-align: justify;
+}
+
+.member-motto {
+  margin-top: var(--spacing-base);
+  padding: var(--spacing-base);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(26, 77, 38, 0.05) 100%);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid var(--title-gold);
+  font-style: italic;
+  color: var(--accent-wood);
+  font-size: var(--font-size-small);
+  box-shadow: var(--shadow-xs);
+}
+
+/* ------------------------------------------------------------------
+   ABOUT - Video Section
+   ------------------------------------------------------------------ */
+.video-section {
+  margin: var(--spacing-3xl) 0;
+  text-align: center;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  margin: var(--spacing-xl) auto;
+  padding-bottom: 56.25%;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-large), 0 0 40px rgba(0, 0, 0, 0.2);
+  border: 5px solid var(--accent-wood);
+  background: var(--bg-forest-dark);
+  transition: all var(--transition-normal);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-container:hover {
+  box-shadow: var(--shadow-xl), 0 0 60px rgba(212, 175, 55, 0.3);
+  border-color: var(--title-gold);
+  transform: scale(1.02);
+}
+
+/* ------------------------------------------------------------------
+   ABOUT - Video Description
+   ------------------------------------------------------------------ */
+.video-description {
+  max-width: 850px;
+  margin: var(--spacing-xl) auto 0;
+  text-align: center;
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 2px solid var(--border-color);
+}
+
+.video-description h4 {
+  color: var(--bg-forest);
+  margin-bottom: var(--spacing-base);
+}
+
+.video-description p {
+  color: var(--text-dark);
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* ====================================================================
+   RESPONSIVE - BREAKPOINTS MOVIL PREMIUM MEJORADO
+   ==================================================================== */
+
+/* ------------------------------------------------------------------
+   RESPONSIVE - Extra Large (max-width: 1200px)
+   ------------------------------------------------------------------ */
+@media (max-width: 1200px) {
+  .lore-content {
+    gap: var(--spacing-large);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* ------------------------------------------------------------------
+   RESPONSIVE - Large Tablet (max-width: 1024px)
+   ------------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .contact-container {
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-large);
+  }
+
+  /* Carrusel muestra 3 slides en tablet grande */
+  .carousel-slide {
+    flex: 0 0 calc(100% / 3);
+  }
+
+  .lore-content {
+    padding: var(--spacing-large);
+  }
+}
+
+/* ------------------------------------------------------------------
+   RESPONSIVE - Tablet (max-width: 992px)
+   ------------------------------------------------------------------ */
+@media (max-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  /* Lore content cambia a columna unica en tablet */
+  .lore-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-large);
+  }
+
+  .lore-article:nth-child(even) .lore-content {
+    direction: ltr;
+  }
+
+  .lore-image {
+    height: 280px;
+    order: -1;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-large);
+  }
+
+  .carousel-container::before,
+  .carousel-container::after {
+    width: 60px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   RESPONSIVE - Mobile (max-width: 768px) - HISTORIA MEJORADO
+   ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+  /* Carrusel muestra 2 slides en movil */
+  .carousel-slide {
+    flex: 0 0 calc(100% / 2);
+  }
+
+  .carousel-img {
+    height: 200px;
+    border-width: 3px;
+  }
+
+  .carousel-container::before,
+  .carousel-container::after {
+    width: 25px;
+  }
+
+  .carousel-section {
+    padding: var(--spacing-base);
+    margin: var(--spacing-large) 0;
+    border-radius: var(--border-radius-lg);
+  }
+
+  .carousel-note {
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-base);
+  }
+
+  /* Lore section mejorado para movil */
+  .lore-section {
+    margin: var(--spacing-large) 0;
+  }
+
+  .lore-article {
+    margin-bottom: var(--spacing-large);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .lore-article:hover {
+    transform: translateY(-4px);
+  }
+
+  .lore-content {
+    padding: var(--spacing-base);
+    gap: var(--spacing-base);
+  }
+
+  .lore-content h3 {
+    font-size: 1.1rem;
+    padding-bottom: var(--spacing-xs);
+  }
+
+  .lore-content h3::before {
+    margin-right: 8px;
+  }
+
+  .lore-content p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .lore-image {
+    height: 200px;
+    border-width: 3px;
+  }
+
+  /* Team grid en movil - 1 columna */
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-large);
+  }
+
+  .team-member:hover {
+    transform: translateY(-8px);
+  }
+
+  .member-image-wrapper {
+    height: 220px;
+  }
+
+  .member-content {
+    padding: var(--spacing-large);
+  }
+
+  /* Contact form section en movil */
+  .contact-form-section {
+    padding: var(--spacing-large);
+  }
+
+  .info-block:hover {
+    transform: translateX(5px);
+  }
+
+  /* Video container en movil */
+  .video-container {
+    border-width: 3px;
+    border-radius: var(--border-radius-lg);
+  }
+
+  .video-container:hover {
+    transform: scale(1.01);
+  }
+
+  .video-description {
+    padding: var(--spacing-large);
+  }
+
+  .video-description p {
+    text-align: left;
+  }
+}
+
+/* ------------------------------------------------------------------
+   RESPONSIVE - Mobile Small (max-width: 480px) - HISTORIA PREMIUM
+   ------------------------------------------------------------------ */
+@media (max-width: 480px) {
+  /* Carrusel muestra 1 slide en movil pequeño */
+  .carousel-slide {
+    flex: 0 0 100%;
+    padding: var(--spacing-xs);
+  }
+
+  .carousel-img {
+    height: 180px;
+    border-width: 2px;
+    border-radius: var(--border-radius-md);
+  }
+
+  .carousel-container::before,
+  .carousel-container::after {
+    width: 15px;
+  }
+
+  .carousel-section {
+    padding: var(--spacing-small);
+    margin: var(--spacing-base) 0;
+  }
+
+  .carousel-section::before {
+    background: linear-gradient(
+      90deg,
+      rgba(250, 248, 243, 0.9) 0%,
+      transparent 5%,
+      transparent 95%,
+      rgba(250, 248, 243, 0.9) 100%
+    );
+  }
+
+  /* Lore articles en movil pequeño */
+  .lore-article {
+    margin-bottom: var(--spacing-base);
+    border-radius: var(--border-radius-md);
+    border-width: 1px;
+  }
+
+  .lore-article::before {
+    height: 3px;
+  }
+
+  .lore-content {
+    padding: var(--spacing-small);
+    gap: var(--spacing-small);
+  }
+
+  .lore-content h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .lore-content h3::before {
+    font-size: 0.8em;
+    margin-right: 6px;
+  }
+
+  .lore-content p {
+    font-size: 0.85rem;
+    line-height: 1.65;
+  }
+
+  .lore-image {
+    height: 160px;
+    border-width: 2px;
+    border-radius: var(--border-radius-md);
+  }
+
+  /* Contact en movil pequeño */
+  .contact-intro {
+    padding: var(--spacing-base);
+    margin-bottom: var(--spacing-large);
+  }
+
+  .contact-info {
+    gap: var(--spacing-base);
+  }
+
+  .info-block {
+    padding: var(--spacing-base);
+  }
+
+  .info-title {
+    font-size: var(--font-size-base);
+  }
+
+  .info-title .material-icons {
+    font-size: 24px;
+  }
+
+  .map-block {
+    padding: var(--spacing-base);
+  }
+
+  .map-block iframe {
+    height: 200px;
+  }
+
+  .contact-form-section {
+    padding: var(--spacing-base);
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: var(--spacing-small);
+    font-size: 16px; /* Evita zoom en iOS */
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: var(--spacing-base);
+  }
+
+  /* Team en movil pequeño */
+  .team-intro {
+    padding: var(--spacing-base);
+  }
+
+  .team-intro p {
+    font-size: 0.9rem;
+  }
+
+  .team-member {
+    border-radius: var(--border-radius-lg);
+  }
+
+  .member-image-wrapper {
+    height: 180px;
+  }
+
+  .member-content {
+    padding: var(--spacing-base);
+  }
+
+  .member-name {
+    font-size: var(--font-size-large);
+  }
+
+  .member-role {
+    font-size: var(--font-size-xs);
+  }
+
+  .member-bio {
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  .member-motto {
+    padding: var(--spacing-small);
+    font-size: var(--font-size-xs);
+  }
+
+  /* Video en movil pequeño */
+  .video-section {
+    margin: var(--spacing-xl) 0;
+  }
+
+  .video-container {
+    border-width: 2px;
+    border-radius: var(--border-radius-md);
+  }
+
+  .video-description {
+    padding: var(--spacing-base);
+    border-radius: var(--border-radius-md);
+  }
+
+  .video-description h4 {
+    font-size: var(--font-size-base);
+  }
+
+  .video-description p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ------------------------------------------------------------------
+   RESPONSIVE - Extra Small (max-width: 360px)
+   ------------------------------------------------------------------ */
+@media (max-width: 360px) {
+  /* Ajustes para pantallas muy pequeñas */
+  .carousel-img {
+    height: 150px;
+  }
+
+  .lore-content {
+    padding: var(--spacing-xs);
+  }
+
+  .lore-content h3 {
+    font-size: 0.95rem;
+  }
+
+  .lore-content p {
+    font-size: 0.8rem;
+  }
+
+  .lore-image {
+    height: 140px;
+  }
+
+  .info-block {
+    padding: var(--spacing-small);
+  }
+
+  .map-block iframe {
+    height: 180px;
+  }
+
+  .member-image-wrapper {
+    height: 160px;
+  }
+
+  .member-content {
+    padding: var(--spacing-small);
+  }
+}
